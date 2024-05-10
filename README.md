@@ -66,7 +66,7 @@ Backend Folder Structure:
 •	TaskManagementApplication.java: Main class for running the Spring Boot application.
 
 GitHub Repository:
-You can find the GitHub repository for this project [(https://github.com/Tkenthiran98/Task-Management.git)](https://github.com/Tkenthiran98/Task-Management.git) Make sure to include the README file in the repository.
+You can find the GitHub repository for this project https://github.com/Tkenthiran98/Task-Management.git Make sure to include the README file in the repository.
 Instructions to Run Locally:
 1.	Clone the GitHub repository to your local machine using the git clone command.
 2.	Navigate to the project directory.
