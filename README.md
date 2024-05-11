@@ -15,7 +15,7 @@ Technologies Used:
 - MySQL database 
 - VS Code editor 
 - Postman for API testing
-- XAMPP
+- XAMPP Server 
 
 Installation:
 1.	Clone the repository to your local machine.
@@ -26,7 +26,7 @@ How to Run:
 1.	Start the development server by running npm start or yarn start.
 2.	Open your web browser and go to http://localhost:3000 to view the application.
 
- task-management-front folder structure
+ task-management-frontend folder structure
  
 ├── node_modules          # Dependencies installed via npm/yarn
 ├── public                # Public assets and HTML template
