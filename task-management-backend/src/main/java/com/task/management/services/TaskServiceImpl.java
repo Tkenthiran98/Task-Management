@@ -1,6 +1,5 @@
 package com.task.management.services;
 
- 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +21,19 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
+    public List<Task> getAllTasks(String status, String teamMemberName) {
+        if (status != null && teamMemberName != null) {
+            return taskRepository.findByStatusAndTeamMemberName(status, teamMemberName);
+        } else if (status != null) {
+            return taskRepository.findByStatus(status);
+        } else if (teamMemberName != null) {
+            return taskRepository.findByTeamMemberName(teamMemberName);
+        } else {
+            return taskRepository.findAll();
+        }
+    }
+
+    @Override
     public Optional<Task> getTaskById(Long id) {
         return taskRepository.findById(id);
     }
@@ -37,6 +49,7 @@ public class TaskServiceImpl implements TaskService {
         task.setTitle(taskDetails.getTitle());
         task.setDescription(taskDetails.getDescription());
         task.setStatus(taskDetails.getStatus());
+        task.setTeamMemberName(taskDetails.getTeamMemberName());
         return taskRepository.save(task);
     }
 
@@ -47,7 +60,7 @@ public class TaskServiceImpl implements TaskService {
         task.setStatus(status);
         taskRepository.save(task);
     }
-    
+
     @Override
     public void deleteTask(Long id) {
         taskRepository.deleteById(id);

@@ -18,8 +18,9 @@ public class TaskController {
     private TaskService taskService;
 
     @GetMapping(EndpointBundle.GET_ALL_TASKS)
-    public List<Task> getAllTasks() {
-        return taskService.getAllTasks();
+    public List<Task> getAllTasks(@RequestParam(required = false) String status, 
+                                  @RequestParam(required = false) String teamMemberName) {
+        return taskService.getAllTasks(status, teamMemberName);
     }
 
     @GetMapping(EndpointBundle.GET_TASK_BY_ID)
@@ -43,7 +44,6 @@ public class TaskController {
         taskService.updateTaskStatus(id, status);
         return ValidationMessages.UPDATE_SUCCESS;
     }
-    
 
     @DeleteMapping(EndpointBundle.DELETE_TASK_BY_ID)
     public String deleteTask(@PathVariable Long id) {

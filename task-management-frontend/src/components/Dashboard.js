@@ -36,7 +36,7 @@ const Dashboard = ({ backgroundColor }) => {
       setStatusUpdateMessage('Status updated successfully');
       setTimeout(() => {
         setStatusUpdateMessage('');
-      }, 3000); // Clear the message after 3 seconds
+      }, 7000);  
     } catch (error) {
       console.error('Error updating task status:', error);
     }

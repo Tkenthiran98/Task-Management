@@ -13,5 +13,6 @@ public interface TaskService {
     Task updateTask(Long id, Task taskDetails);
     void deleteTask(Long id);
     void updateTaskStatus(Long Id, String status);
+    List<Task> getAllTasks(String status, String teamMemberName);
 
 }

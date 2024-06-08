@@ -26,7 +26,7 @@ const TaskForm = ({ onCreate, onUpdate, onDelete, onCancel }) => {
         params.status = statusFilter;
       }
       if (teamMemberFilter) {
-        params.teamMember = teamMemberFilter;
+        params.teamMemberName = teamMemberFilter;
       }
       const response = await axios.get(url, { params });
       setTasks(response.data);
@@ -34,7 +34,6 @@ const TaskForm = ({ onCreate, onUpdate, onDelete, onCancel }) => {
       console.error('Error fetching tasks:', error);
     }
   }, [statusFilter, teamMemberFilter]);
-  
 
   useEffect(() => {
     fetchAllTasks();
@@ -142,7 +141,6 @@ const TaskForm = ({ onCreate, onUpdate, onDelete, onCancel }) => {
           <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="form-textarea" />
           {formErrors.description && <span className="error">{formErrors.description}</span>}
         </div>
-
         <div className="form-group">
           <label className="form-label">Status:</label>
           <select value={status} onChange={(e) => setStatus(e.target.value)} className="form-select">
@@ -161,33 +159,33 @@ const TaskForm = ({ onCreate, onUpdate, onDelete, onCancel }) => {
       </form>
 
       <div className="filter-controls">
-  <div className="filter-item">
-    <label htmlFor="statusFilter">Status:</label>
-    <select
-      id="statusFilter"
-      value={statusFilter}
-      onChange={(e) => setStatusFilter(e.target.value)}
-      className="filter-select"
-    >
-      <option value="all">All</option>
-      <option value="pending">Pending</option>
-      <option value="in-progress">In Progress</option>
-      <option value="completed">Completed</option>
-    </select>
-  </div>
+        <div className="filter-item">
+          <label htmlFor="statusFilter">Status:</label>
+          <select
+            id="statusFilter"
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="filter-select"
+          >
+            <option value="all">All</option>
+            <option value="pending">Pending</option>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
 
-  <div className="filter-item">
-    <label htmlFor="teamMemberFilter">Team Member:</label>
-    <input
-      id="teamMemberFilter"
-      type="text"
-      value={teamMemberFilter}
-      onChange={(e) => setTeamMemberFilter(e.target.value)}
-      placeholder="Filter by team member..."
-      className="filter-input"
-    />
-  </div>
-</div>
+        <div className="filter-item">
+          <label htmlFor="teamMemberFilter">Team Member Name:</label>
+          <input
+            id="teamMemberFilter"
+            type="text"
+            value={teamMemberFilter}
+            onChange={(e) => setTeamMemberFilter(e.target.value)}
+            placeholder="Filter by Team Member Name..."
+            className="filter-input"
+          />
+        </div>
+      </div>
 
       <div className="task-list-container">
         <h2 className="task-list-title">All Tasks</h2>
